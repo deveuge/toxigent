@@ -1,0 +1,139 @@
+#search-form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+#search-form > label:not([for="detailed"]) {
+    display: none;
+}
+
+#search-form > input,
+#search-form > div {
+    margin: 0 1rem 1rem 1rem;
+}
+
+#search-form > div {
+    flex: 1;
+}
+
+#search-form > input,
+#search-form > div > select {
+    width: 100%;
+    min-width: 180px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px var(--opacity-color);
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+#search-form > input {
+    background-image: url('../img/search.svg');
+    background-repeat: no-repeat;
+    background-size: 1.75rem;
+    background-position: 0.75rem;
+    text-indent: 2.5rem;
+}
+
+#search-form > div > label {
+    display: block;
+    letter-spacing: 0.1rem;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    margin-bottom: 0.25rem;
+    opacity: 0.75;
+}
+
+.checkbox {
+    position: relative;
+    margin: auto;
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 1.5rem;
+}
+
+.checkbox > input {
+    height: 0;
+    width: 0;
+}
+
+.checkbox > span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: -25%;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--backdrop-color);
+    color: transparent;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px var(--opacity-color);
+    padding-right: 0.25rem;
+    padding-bottom: 0.1rem;
+}
+
+.checkbox input:checked ~ span {
+    background-color: var(--main-color);
+    color: white;
+}
+
+#plant-table {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.MuiPaper-root {
+    background-color: var(--background-color) !important;
+    color: var(--font-color) !important;
+}
+
+.MuiTableRow-head > th {
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    color: rgba(0,0,0,0.5);
+}
+
+.MuiTableRow-head > th > span > span {
+    font-variant: normal;
+}
+
+.MuiTableCell-root > img {
+    display: block;
+    width: 40px;
+}
+
+.MuiTableCell-root > span > i {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+.MuiTableCell-root > img:not(.plant-img) {
+    margin: auto;
+    padding-right: calc(26px + 0.5rem);
+    width: calc(48px + 26px);
+}
+
+.MuiTableCell-root > img.moderate {
+    filter: hue-rotate(45deg) brightness(1.5);
+}
+
+.MuiTableCell-root > img.disabled {
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.MuiTable-root .MuiIcon-root {
+    font-size: 2rem !important;
+    color: #448dff;
+}

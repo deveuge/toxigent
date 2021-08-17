@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400:800&display=swap');
+
+:root {
+  --main-color: #45b649;
+  --accent-color: #dce35b;
+  --opacity-color: rgb(0,0,0,0.1);
+  --background-color: white;
+  --backdrop-color: #fdfdfd;
+  --font-color: #2e2e2e;
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+	:root {
+    --background-color: #242424;
+    --backdrop-color: #292929;
+    --font-color: #ffffff;
+    --opacity-color: rgb(255,255,255,0.1);
+	}
+}
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Rubik', sans-serif;
+  font-weight: lighter;
+  background-color: var(--backdrop-color);
+  color: var(--font-color) !important;
+}
+
+a {
+  color: var(--main-color);
+}
+
+h1, h2 {
+  color: var(--font-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:not([class^="Mui"]) {
+  transition: all 0.25s ease;
+}
+
+*:focus {
+  outline-color: var(--main-color);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh;
+  padding: 2rem;
+  background-image: url('../img/header.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+}
+
+#detail-header {
+  background-image: url('../img/header2.jpg');
+  min-height: 45vh;
+}
+
+header:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #dce35b, #45b649);
+  opacity: 0.75;
+}
+
+header > div {
+  width: 80vw;
+  max-width: 700px;
+  margin-top: 10vh;
+  text-align: center;
+  z-index: 1;
+}
+
+header > div > h1,
+header > div > h2 {
+  margin: 0;
+  color: white;
+}
+
+header > div > h1 {
+  text-shadow: 0 0 5px var(--opacity-color);
+}
+
+header > div > h2 {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1rem;
+  text-shadow: 0 0 5px rgb(0 0 0 / 50%);
+  margin-top: 0.25rem;
+  opacity: 0.75;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+}
