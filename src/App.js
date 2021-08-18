@@ -1,4 +1,3 @@
-import './static/css/App.css';
 import './static/css/loader.css';
 
 import { useEffect, useState } from "react";
@@ -26,7 +25,7 @@ function App() {
   const Loader = () => {
     return (
       <div id="logo">
-        <img src={logo} />
+        <img src={logo} alt="Logo" />
       </div>
     );
   }

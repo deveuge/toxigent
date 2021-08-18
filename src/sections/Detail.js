@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
+import axios from 'axios';
 import '../static/css/details.css';
 
-import { getTypeIcon } from '../util/Constants';
+import { 
+    getTypeIcon, 
+    WikipediaAPI
+} from '../util/Constants';
 import { ToxicIcon, DogIcon, CatIcon, Placeholder } from '../static/img'
 
 import { AppData } from '../util/Constants';
@@ -11,9 +15,9 @@ class Detail extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             plant: undefined
-         };
+        };
     }
 
     componentDidMount() {
@@ -27,6 +31,10 @@ class Detail extends Component {
     getPlantInfo(id) {
         let plant = AppData.plantData.filter((obj) => obj.name.common === id)[0];
         this.setState({ plant: plant });
+
+        axios.get(WikipediaAPI.search + plant.name.scientific).then(res => {
+            this.setState({ wikipediaResults: res.data.query.pages });
+        });
     }
 
     render() {
@@ -34,7 +42,7 @@ class Detail extends Component {
             return (
                 <div>
                     <Header name={this.state.plant.name} />
-                    <Body plant={this.state.plant} />
+                    <Body plant={this.state.plant} wikipediaResults={this.state.wikipediaResults} />
                 </div>
             );
         } else {
@@ -54,7 +62,7 @@ const Header = ({ name }) => {
     );
 }
 
-const Body = ({ plant }) => {
+const Body = ({ plant, wikipediaResults }) => {
 
     function getPlantImage() {
         try {
@@ -68,8 +76,8 @@ const Body = ({ plant }) => {
             <div className="card">
                 <div id="info-container">
                     <div id="image-container">
-                        <img src={getPlantImage(plant)} />
-                        <img src={plant.icon} />
+                        <img src={getPlantImage(plant)} alt={plant.name.common} />
+                        <img src={plant.icon} alt={plant.name.common + " icon"} />
                     </div>
 
                     <div>
@@ -101,6 +109,8 @@ const Body = ({ plant }) => {
             </div>
 
             <DetailsTable detailedInfo={plant.detailedInfo} />
+
+            <WikipediaResults info={wikipediaResults} />
         </main>
     );
 }
@@ -109,7 +119,7 @@ const DetailsTable = ({ detailedInfo }) => {
 
     function orderObjectProperties(arr) {
         return Object.keys(arr).sort().reduce(
-            (obj, key) => {obj[key] = arr[key]; return obj;}, {}
+            (obj, key) => { obj[key] = arr[key]; return obj; }, {}
         );
     }
 
@@ -123,15 +133,16 @@ const DetailsTable = ({ detailedInfo }) => {
                         <th>Value</th>
                     </thead>
                     <tbody>
-                        {Object.keys(orderObjectProperties(detailedInfo)).map((key, index) =>
-                            {if(key.toLowerCase() !== "image") {
-                                return(
+                        {Object.keys(orderObjectProperties(detailedInfo)).map((key, index) => {
+                            if (key.toLowerCase() !== "image") {
+                                return (
                                     <tr key={key}>
                                         <td key={1}>{key.split(/(?=[A-Z])/).join(" ").toLowerCase()}</td>
                                         <td key={2}>{detailedInfo[key]}</td>
                                     </tr>
                                 )
-                            }}
+                            }
+                        }
                         )}
                     </tbody>
                 </table>
@@ -141,6 +152,34 @@ const DetailsTable = ({ detailedInfo }) => {
         return (
             <div className="card" id="no-details">
                 <em>No details available</em>
+            </div>);
+    }
+}
+
+const WikipediaResults = ({ info }) => {
+
+    if (info !== undefined) {
+        return (
+            <div className="card">
+                <h2>Wikipedia results</h2>
+                {info.map((item, i) => (
+                    <a href={WikipediaAPI.page + item.pageid} class="wiki-result" target="_blank" without rel="noreferrer">
+                        <figure key={i}>
+                            <img src={item.thumbnail.source} alt="Wikipedia result icon"/>
+                            <figcaption>
+                                <b>{item.title}</b>
+                                <p>{item.terms.description}</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                ))}
+            </div>
+            
+        );
+    } else {
+        return (
+            <div className="card" id="no-details">
+                <em>No Wikipedia results available</em>
             </div>);
     }
 }

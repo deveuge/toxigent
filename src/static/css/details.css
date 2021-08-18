@@ -142,3 +142,45 @@ main {
 #details-table tr:nth-child(even) {
     background-color: var(--opacity-color);
 }
+
+.wiki-result {
+    display: block;
+    text-decoration: none;
+}
+
+.wiki-result:hover {
+    background-color: var(--main-color);
+    color: var(--background-color);
+}
+
+.wiki-result + .wiki-result {
+    border-top: 1px solid var(--opacity-color);
+}
+
+.wiki-result > figure {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.wiki-result > figure > img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+}
+
+.wiki-result > figure > figcaption {
+    padding: 1rem;
+}
+
+.wiki-result > figure > figcaption > p {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--font-color);
+    opacity: 0.8;
+}
+
+.wiki-result > figure > figcaption > p::first-letter {
+    text-transform: capitalize;
+}
