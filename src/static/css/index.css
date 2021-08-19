@@ -2,23 +2,20 @@
 
 :root {
   --main-color: #45b649;
-  --accent-color: #dce35b;
   --opacity-color: rgb(0,0,0,0.1);
   --background-color: white;
   --backdrop-color: #fdfdfd;
   --font-color: #2e2e2e;
+  --footer-color: #292c2f;
 }
 
-/*
-@media (prefers-color-scheme: dark) {
-	:root {
-    --background-color: #242424;
-    --backdrop-color: #292929;
-    --font-color: #ffffff;
-    --opacity-color: rgb(255,255,255,0.1);
-	}
+:root.dark {
+  --background-color: #131313;
+  --backdrop-color: #2c2c2c;
+  --font-color: #d5d5d5;
+  --opacity-color: rgb(255,255,255,0.1);
+  --footer-color: #181818;
 }
-*/
 
 body {
   margin: 0;
@@ -42,7 +39,7 @@ h1, h2 {
   box-sizing: border-box;
 }
 
-*:not([class^="Mui"]) {
+*:not([class^="Mui"]):hover {
   transition: all 0.25s ease;
 }
 
@@ -127,9 +124,78 @@ header > div > h2 {
   opacity: 0.75;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--footer-color);
+  color: white;
+  padding: 2rem;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a + a {
+  margin-left: 0.5rem;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer > div {
+  display: flex;
+  text-align: right;
+}
+
+footer img {
+  width: 2rem;
+  filter: brightness(10);
+}
+
+footer > div > img {
+  margin-left: 1rem;
+  filter: invert(1);
+}
+
+footer a > img:hover {
+  filter: none;
+}
 
 
+footer h2 {
+  text-transform: lowercase;
+  font-variant: small-caps;
+  letter-spacing: 0.1rem;
+}
 
+footer h2, 
+footer  h5 {
+  margin: 0;
+  color: white;
+}
+
+footer h5 {
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+.react-toggle-track-check,
+.react-toggle-track-x {
+  filter: brightness(0) invert(1);
+  font-size: 0.8rem;
+  line-height: 0.6rem !important;
+}
+
+.react-toggle-track-check {
+  left: 0.4rem !important;
+}
+
+.react-toggle-track-x {
+  right: 0.8rem !important;
+}
 
 @media (min-width: 768px) {
 }

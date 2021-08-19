@@ -111,6 +111,7 @@ main {
     font-weight: normal;
     font-size: 0.9rem;
     margin-top: 0.5rem;
+    color: white;
 }
 
 #no-details {
@@ -149,8 +150,7 @@ main {
 }
 
 .wiki-result:hover {
-    background-color: var(--main-color);
-    color: var(--background-color);
+    background-color: var(--opacity-color);
 }
 
 .wiki-result + .wiki-result {

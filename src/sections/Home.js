@@ -5,7 +5,7 @@ import '../static/css/home.css';
 
 import MaterialTable from "material-table";
 
-import { getTypeIcon } from '../util/Constants';
+import { getTypeIcon } from '../util/Functions';
 import { ToxicIcon, DogIcon, CatIcon } from '../static/img'
 import { AppData } from '../util/Constants';
 

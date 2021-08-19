@@ -7,11 +7,13 @@ import AppRouter from './common/AppRouter';
 
 import logo from './static/img/logo.svg';
 import { AppData } from './util/Constants';
+import { saveTheme } from './util/Functions';
 
 function App() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    saveTheme();
     axios.get('/static/json/data.json').then(res => {
       AppData.plantData = res.data;
       Object.freeze(AppData);
@@ -29,7 +31,7 @@ function App() {
       </div>
     );
   }
-  
+
   if (isLoading) {
     return <Loader />;
   }

@@ -5,6 +5,7 @@ import Detail from '../sections/Detail';
 
 import Navigation from '../common/Navigation';
 import ScrollToTop from '../common/ScrollToTop';
+import Footer from '../common/Footer';
 
 const AppRouter = () => {
 
@@ -29,6 +30,7 @@ const AppRouter = () => {
                                 <ScrollToTop/>
                                 <Navigation />
                                 <Component {...props} crumbs={crumbs} />
+                                <Footer/>
                             </div>
                         );
                     }}

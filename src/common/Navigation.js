@@ -4,22 +4,29 @@ import '../static/css/navbar.css';
 
 import logo from '../static/img/logo.svg';
 import { AppName, AppData } from '../util/Constants';
+import { setTheme, isLightTheme } from '../util/Functions';
+import Toggle from "react-toggle";
+import "react-toggle/style.css"
+
+const DarkModeToggle = () => {
+	return (
+	  <Toggle
+	  	defaultChecked={isLightTheme()}
+		onChange={({ target }) => setTheme(target.checked)}
+		icons={{ checked: "🔆", unchecked: "🌙" }}
+		aria-label="Toggle dark mode"
+	  />
+	);
+};
 
 const Navbar = () => {
-	const NavLink = (props) => {
-		return (
-			<Link to={props.href} title={props.title}>{props.title}</Link>
-		);
-	}
 	return (
 		<nav id="navbar">
 			<Link to="/" title="Home">
-				<img src={logo} alt="Logo"/>
+				<img src={logo} alt="Logo" />
 				<h1>{AppName}</h1>
 			</Link>
-			<ul>
-				<li><NavLink href={"/p/" + AppData.plantData[Math.floor(Math.random()*AppData.plantData.length)].name.common} title="Random plant"/></li>
-			</ul>
+			<DarkModeToggle/>
 		</nav>
 	);
 }
@@ -27,12 +34,12 @@ const Navbar = () => {
 const TopNavigation = ({ crumbs }) => {
 	return (
 		<header>
-      		{crumbs.map(({ name, path }, key) => key + 1 === crumbs.length 
-      			? (<Link key={key} to={path} className="active">{name}</Link>) 
-      			: (<Link key={key} to={path}>{name}</Link>)
-      		)}
-   		</header>
-  );
+			{crumbs.map(({ name, path }, key) => key + 1 === crumbs.length
+				? (<Link key={key} to={path} className="active">{name}</Link>)
+				: (<Link key={key} to={path}>{name}</Link>)
+			)}
+		</header>
+	);
 };
 
 export { TopNavigation };

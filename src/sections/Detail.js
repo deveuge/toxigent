@@ -3,10 +3,8 @@ import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import '../static/css/details.css';
 
-import { 
-    getTypeIcon, 
-    WikipediaAPI
-} from '../util/Constants';
+import { WikipediaAPI } from '../util/Constants';
+import { getTypeIcon } from '../util/Functions';
 import { ToxicIcon, DogIcon, CatIcon, Placeholder } from '../static/img'
 
 import { AppData } from '../util/Constants';
@@ -165,7 +163,7 @@ const WikipediaResults = ({ info }) => {
                 {info.map((item, i) => (
                     <a href={WikipediaAPI.page + item.pageid} class="wiki-result" target="_blank" without rel="noreferrer">
                         <figure key={i}>
-                            <img src={item.thumbnail.source} alt="Wikipedia result icon"/>
+                            <img src={item.thumbnail ? item.thumbnail.source : Placeholder} alt="Wikipedia result icon"/>
                             <figcaption>
                                 <b>{item.title}</b>
                                 <p>{item.terms.description}</p>

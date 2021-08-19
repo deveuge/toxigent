@@ -88,11 +88,23 @@
 #plant-table {
     max-width: 1200px;
     margin: auto;
+    margin-bottom: 4rem;
 }
 
-.MuiPaper-root {
+.MuiPaper-root,
+.MuiTable-root,
+.MuiToolbar-root {
     background-color: var(--background-color) !important;
     color: var(--font-color) !important;
+}
+
+.dark .MuiPaper-root,
+.dark .MuiToolbar-root {
+    background-color: var(--backdrop-color) !important;
+}
+
+.MuiTablePagination-root {
+    border: none !important;
 }
 
 .MuiTableRow-head > th {
@@ -136,4 +148,9 @@
 .MuiTable-root .MuiIcon-root {
     font-size: 2rem !important;
     color: #448dff;
+}
+
+.MuiIconButton-label,
+.MuiTablePagination-toolbar .MuiIcon-root {
+    color: var(--main-color) !important;
 }
