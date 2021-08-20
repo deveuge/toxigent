@@ -71,13 +71,18 @@
     top: -25%;
     height: 1.5rem;
     width: 1.5rem;
-    background-color: var(--backdrop-color);
+    background-color: white;
     color: transparent;
     font-weight: bold;
     border-radius: 3px;
     box-shadow: 0px 8px 15px var(--opacity-color);
     padding-right: 0.25rem;
     padding-bottom: 0.1rem;
+}
+
+
+.checkbox > input:hover ~ span {
+    background-color: #d9d9d9;
 }
 
 .checkbox input:checked ~ span {
@@ -112,11 +117,37 @@
     font-variant: small-caps;
     letter-spacing: 0.1rem;
     font-weight: bold;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.35);
+    background-color: var(--background-color);
+}
+
+
+.dark .MuiTableRow-head > th,
+.dark .MuiTableSortLabel-root:focus {
+    color: rgba(255,255,255,0.35);
+}
+
+.dark .MuiTableSortLabel-root:hover,
+.dark .MuiTableSortLabel-active,
+.dark .MuiTableSortLabel-active .MuiTableSortLabel-icon {
+    color: rgba(255,255,255,0.75) !important;
+}
+
+.MuiButton-root {
+    color: var(--font-color) !important;
+}
+
+.MuiButton-root:hover,
+.MuiButton-contained.Mui-disabled {
+    background-color: var(--opacity-color) !important;
 }
 
 .MuiTableRow-head > th > span > span {
     font-variant: normal;
+}
+
+.MuiTableCell-root {
+    border-bottom-color: var(--opacity-color) !important;
 }
 
 .MuiTableCell-root > img {
@@ -147,7 +178,6 @@
 
 .MuiTable-root .MuiIcon-root {
     font-size: 2rem !important;
-    color: #448dff;
 }
 
 .MuiIconButton-label,

@@ -6,7 +6,7 @@
     align-items: center;
     border-bottom: 1px solid var(--opacity-color);
     background-color: var(--background-color);
-    box-shadow: 0 0 5px -3px black;
+    box-shadow: 0 0 5px -1px black;
     z-index: 11;
   }
   

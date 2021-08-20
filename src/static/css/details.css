@@ -61,10 +61,11 @@ main {
     padding: 0.5rem;
     line-height: 2rem;
     border-bottom: 1px solid var(--opacity-color);
+    transition: all 0.25s ease;
 }
 
 #info-container > div:last-of-type > ul > li:hover {
-    background-color: #eee;
+    background-color: var(--opacity-color);
 }
 
 #info-container > div:last-of-type > ul > li::before {
@@ -91,6 +92,8 @@ main {
 #card-details > div {
     display: flex;
     padding: 1rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
 
 #card-details > div:hover {
@@ -147,6 +150,7 @@ main {
 .wiki-result {
     display: block;
     text-decoration: none;
+    transition: all 0.25s ease;
 }
 
 .wiki-result:hover {

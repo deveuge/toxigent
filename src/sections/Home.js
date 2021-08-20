@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { Paper } from '@material-ui/core';
-import '../static/css/home.css';
-
 import MaterialTable from "material-table";
+
+import '../static/css/home.css';
 
 import { getTypeIcon } from '../util/Functions';
 import { ToxicIcon, DogIcon, CatIcon } from '../static/img'
@@ -213,6 +213,7 @@ const Table = ({ data, history }) => {
                     {
                         icon: 'info',
                         tooltip: 'View details',
+                        iconProps: { style: { color: '#448dff' }  },
                         onClick: (event, rowData) => history.push({
                             pathname: '/p/' + rowData.name.common
                         })

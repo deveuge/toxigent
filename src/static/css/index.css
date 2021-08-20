@@ -10,8 +10,8 @@
 }
 
 :root.dark {
-  --background-color: #131313;
-  --backdrop-color: #2c2c2c;
+  --background-color: #292929;
+  --backdrop-color: #111111;
   --font-color: #d5d5d5;
   --opacity-color: rgb(255,255,255,0.1);
   --footer-color: #181818;
@@ -25,6 +25,7 @@ body {
   font-weight: lighter;
   background-color: var(--backdrop-color);
   color: var(--font-color) !important;
+  transition: all 0.25s ease;
 }
 
 a {
@@ -37,10 +38,6 @@ h1, h2 {
 
 * {
   box-sizing: border-box;
-}
-
-*:not([class^="Mui"]):hover {
-  transition: all 0.25s ease;
 }
 
 *:focus {
@@ -161,6 +158,7 @@ footer > div > img {
 }
 
 footer a > img:hover {
+  transition: all 0.25s ease;
   filter: none;
 }
 

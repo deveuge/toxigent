@@ -166,7 +166,7 @@ const WikipediaResults = ({ info }) => {
                             <img src={item.thumbnail ? item.thumbnail.source : Placeholder} alt="Wikipedia result icon"/>
                             <figcaption>
                                 <b>{item.title}</b>
-                                <p>{item.terms.description}</p>
+                                <p>{item.terms ? item.terms.description : "No description"}</p>
                             </figcaption>
                         </figure>
                     </a>
