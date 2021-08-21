@@ -31,7 +31,9 @@ class Detail extends Component {
         this.setState({ plant: plant });
 
         axios.get(WikipediaAPI.search + plant.name.scientific).then(res => {
-            this.setState({ wikipediaResults: res.data.query.pages });
+            try {
+                this.setState({ wikipediaResults: res.data.query.pages });
+            } catch(err) {}
         });
     }
 

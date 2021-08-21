@@ -3,7 +3,7 @@ main {
     width: 90%;
     max-width: 1000px;
     margin: auto;
-    margin-top: -10vh;
+    margin-top: -7.5vh;
 }
 
 .card {
@@ -11,10 +11,6 @@ main {
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
     padding: 2rem;
     margin-bottom: 5rem;
-}
-
-#info-container {
-    display: flex;
 }
 
 #image-container {
@@ -42,11 +38,9 @@ main {
 
 #info-container > div:last-of-type {
     width: 100%;
-    margin-left: 2rem;
 }
 
 #info-container > div:last-of-type > h2 {
-    margin-top: 0;
     text-align: center;
 }
 
@@ -80,8 +74,8 @@ main {
 }
 
 #card-details {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin: -2rem;
     margin-top: 2rem;
     background-color: var(--main-color);
@@ -91,6 +85,7 @@ main {
 
 #card-details > div {
     display: flex;
+    justify-self: center;
     padding: 1rem;
     transition: all 0.25s ease;
     cursor: pointer;
@@ -187,4 +182,23 @@ main {
 
 .wiki-result > figure > figcaption > p::first-letter {
     text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+
+    #info-container {
+        display: flex;
+    }
+
+    #info-container > div:last-of-type {
+        margin-left: 2rem;
+    }
+
+    #card-details {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    #info-container > div:last-of-type > h2 {
+        margin-top: 0;
+    }
 }
