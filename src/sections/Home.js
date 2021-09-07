@@ -106,15 +106,15 @@ const Header = ({ onChange }) => {
             <div>
                 <h1>Discover if a plant is toxic for your pet</h1>
                 <h2>Use the form below to narrow the search</h2>
-                <Form onChange={onChange} />
+                <Form onChange={onChange} onSubmit={e => e.preventDefault()} />
             </div>
         </header>
     );
 }
 
-const Form = ({ onChange }) => {
+const Form = ({ onChange, onSubmit }) => {
     return (
-        <form id="search-form" autoComplete="off" onChange={onChange}>
+        <form id="search-form" autoComplete="off" onChange={onChange} onSubmit={onSubmit}>
             <label htmlFor="name">Common or scientific name</label>
             <input id="name" placeholder="Common or scientific name" type="text" />
             <div>
