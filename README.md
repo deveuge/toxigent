@@ -1,9 +1,11 @@
 # Toxigent
 ![Toxigent Banner](preview.jpg)
 _React App  - Catalog of poisonous plants to pets_
-[View live project](https://toxigent.netlify.app)
+
+[![View live project](https://img.shields.io/badge/View%20live%20project-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://toxigent.netlify.app)
 
 **Toxigent** is a React application built to display the data collected by my web scraper, [**Poisonous Plants Scraper**](https://github.com/deveuge/poisonous-plants-scraper), that collects information about poisonous plants to pets.
+
 
 The data is saved as a JSON file in the app itself to avoid building a backend that serves it. The app loads it at start once and then uses it to display it to the user.
 
